@@ -33,6 +33,15 @@ function App() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <Text>{item.name || "Unnamed Device"}</Text>}
       />
+      <Button
+        title="stop scanning"
+        onPress={() => {
+          setIsScanning(false);
+          scanForPeripherals(() => {
+            setIsScanning(true);
+          });
+        }}
+      ></Button>
     </View>
   );
 }
